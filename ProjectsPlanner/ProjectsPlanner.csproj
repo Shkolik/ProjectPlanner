@@ -95,14 +95,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BussinessObjects\Account.cs" />
-    <Compile Include="BussinessObjects\EntityObject.cs" />
-    <Compile Include="BussinessObjects\IEntityObject.cs" />
-    <Compile Include="BussinessObjects\Item.cs" />
-    <Compile Include="BussinessObjects\ItemType.cs" />
-    <Compile Include="BussinessObjects\Project.cs" />
-    <Compile Include="BussinessObjects\TaskType.cs" />
-    <Compile Include="BussinessObjects\ToDoTask.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -147,8 +139,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.6</Version>
+      <Version>6.0.8</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BussinessObjects\BussinessObjects.csproj">
+      <Project>{9a0d8841-3969-42e1-9266-003602468020}</Project>
+      <Name>BussinessObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
