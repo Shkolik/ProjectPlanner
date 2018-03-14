@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectsPlanner", "ProjectsPlanner\ProjectsPlanner.csproj", "{BEF42DF9-BE0B-4543-B425-D338A40518BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinessObjects", "BussinessObjects\BussinessObjects.csproj", "{9A0D8841-3969-42E1-9266-003602468020}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinessObjects", "BussinessObjects\BussinessObjects.csproj", "{9a0d8841-3969-42e1-9266-003602468020}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

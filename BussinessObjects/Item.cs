@@ -12,5 +12,9 @@ namespace ProjectsPlanner.BussinessObjects
 
         public ItemType Type
         { get; set; }
+
+        public int ProjectId { get; set; }
+
+        public Project Project { get; set; }
     }
 }

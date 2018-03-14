@@ -14,7 +14,7 @@ namespace ProjectsPlanner.BussinessObjects
         /// <summary>
         /// Object id
         /// </summary>
-        int ID { get;set; }
+        int Id { get;set; }
 
         /// <summary>
         /// Object Name

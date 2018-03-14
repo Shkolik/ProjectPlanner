@@ -17,7 +17,7 @@ namespace ProjectsPlanner.BussinessObjects
         }
 
         [DataMember]
-        public decimal ValuePrice
+        public int ValuePrice
         {
             get; set;
         }

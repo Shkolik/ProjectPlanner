@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectsPlanner.BussinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,13 @@ namespace ProjectsPlanner.ViewModels
 {
     public class ToDoTaskViewModel : AbstractViewModel
     {
+        public ToDoTaskViewModel(ToDoTask model)
+        {
+            ID = model.Id;
+            Effort = model.Effort;
+            Name = model.Name;
+        }
+
         private int _Effort;
         public int Effort
         {

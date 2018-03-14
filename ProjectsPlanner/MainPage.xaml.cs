@@ -31,7 +31,7 @@ namespace ProjectsPlanner
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var project = new ProjectViewModel() { Name = "new project"};
+            var project = new ProjectViewModel(new BussinessObjects.Project()) { Name = "new project"};
             var vm = (Application.Current as App)?.ViewModel;
             if (vm != null)
             {

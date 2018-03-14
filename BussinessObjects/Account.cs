@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectsPlanner.BussinessObjects
 {
-    public class Account
+    public class Account : EntityObject
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectsPlanner.BussinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,8 +10,23 @@ namespace ProjectsPlanner.ViewModels
 {
     public class ProjectViewModel : AbstractViewModel
     {
-        private decimal _ValuePrice;
-        public decimal ValuePrice
+        public ProjectViewModel(Project model)
+        {
+            if (model != null)
+            {
+                Id = model.Id;
+                Name = model.Name;
+                ValuePrice = model.ValuePrice;
+                if(model.Tasks != null)
+                    foreach (var task in model.Tasks)
+                    {
+                        Tasks.Add(new ToDoTaskViewModel(task));
+                    }
+            }
+        }
+
+        private int _ValuePrice;
+        public int ValuePrice
         {
             get => _ValuePrice;
             set
@@ -23,15 +39,15 @@ namespace ProjectsPlanner.ViewModels
             }
         }
 
-        private int _ID;
-        public int ID
+        private int _Id;
+        public int Id
         {
-            get => _ID;
+            get => _Id;
             set
             {
-                if (_ID != value)
+                if (_Id != value)
                 {
-                    _ID = value;
+                    _Id = value;
                     NotifyPropertyChanged();
                 }
             }
