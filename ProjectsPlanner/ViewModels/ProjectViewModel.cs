@@ -8,21 +8,13 @@ using System.Threading.Tasks;
 
 namespace ProjectsPlanner.ViewModels
 {
-    public class ProjectViewModel : AbstractViewModel
+    public class ProjectViewModel : AbstractEntityViewModel<Project>
     {
-        public ProjectViewModel(Project model)
-        {
-            if (model != null)
-            {
-                Id = model.Id;
-                Name = model.Name;
-                ValuePrice = model.ValuePrice;
-                if(model.Tasks != null)
-                    foreach (var task in model.Tasks)
-                    {
-                        Tasks.Add(new ToDoTaskViewModel(task));
-                    }
-            }
+        public ProjectViewModel():base()
+        { }
+
+        public ProjectViewModel(Project model):base(model)
+        {            
         }
 
         private int _ValuePrice;
@@ -38,34 +30,7 @@ namespace ProjectsPlanner.ViewModels
                 }
             }
         }
-
-        private int _Id;
-        public int Id
-        {
-            get => _Id;
-            set
-            {
-                if (_Id != value)
-                {
-                    _Id = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        private string _Name;
-        public string Name
-        {
-            get => _Name;
-            set
-            {
-                if (_Name != value)
-                {
-                    _Name = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+                
 
         private ObservableCollection<ToDoTaskViewModel> _Tasks = new ObservableCollection<ToDoTaskViewModel>();
 
@@ -80,6 +45,45 @@ namespace ProjectsPlanner.ViewModels
                     NotifyPropertyChanged();
                 }
             }
+        }
+
+        public override void CreateModel()
+        {
+            Model = new Project() { Name = "New Project" };
+            UpdateViewModel();
+        }
+
+        public override void UpdateViewModel()
+        {
+            base.UpdateViewModel();
+
+            if (Model != null)
+            {
+                ValuePrice = Model.ValuePrice;
+                if (Model.Tasks != null)
+                {
+                    foreach (var task in Model.Tasks)
+                    {
+                        Tasks.Add(new ToDoTaskViewModel(task));
+                    }
+                }
+            }
+        }
+
+        public override void ApplyToModel()
+        {
+            if (Model != null)
+            {
+                Model.ValuePrice = ValuePrice;
+
+                Model.Tasks = new List<ToDoTask>();
+                foreach (var task in Tasks)
+                {
+                    task.ApplyToModel();
+                    Model.Tasks.Add(task.Model);
+                }
+            }
+            base.ApplyToModel();
         }
     }
 }

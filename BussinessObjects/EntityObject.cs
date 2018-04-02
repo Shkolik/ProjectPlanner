@@ -15,5 +15,12 @@ namespace ProjectsPlanner.BussinessObjects
 
         [DataMember]
         public string Name { get; set; }
+
+        protected abstract void SaveToDb();
+        
+        public void Save()
+        {
+            SaveToDb();
+        }
     }
 }

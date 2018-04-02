@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.0;netstandard2.0</TargetFrameworks>
-    <RuntimeFrameworkVersion>2.0.3</RuntimeFrameworkVersion>
+    <RootNamespace>ProjectsPlanner.BussinessObjects</RootNamespace>
+    <AssemblyName>ProjectsPlanner.BussinessObjects</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

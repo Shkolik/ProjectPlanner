@@ -20,5 +20,7 @@ namespace ProjectsPlanner.BussinessObjects
         /// Object Name
         /// </summary>
         string Name { get; set; }
+
+        void Save();
     }
 }

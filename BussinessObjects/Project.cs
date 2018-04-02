@@ -27,5 +27,14 @@ namespace ProjectsPlanner.BussinessObjects
         {
             get; set;
         }
+
+        protected override void SaveToDb()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                db.Update(this);
+                db.SaveChanges();
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace ProjectsPlanner
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var project = new ProjectViewModel(new BussinessObjects.Project()) { Name = "new project"};
+            var project = new ProjectViewModel();
             var vm = (Application.Current as App)?.ViewModel;
             if (vm != null)
             {
@@ -41,7 +41,7 @@ namespace ProjectsPlanner
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {  
             MainFrame.Navigate(typeof(ProjectPage));
         }
     }

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ProjectsPlanner.ViewModels
 {
-    public class ToDoTaskViewModel : AbstractViewModel
+    public class ToDoTaskViewModel : AbstractEntityViewModel<ToDoTask>
     {
-        public ToDoTaskViewModel(ToDoTask model)
+        public ToDoTaskViewModel() : base()
         {
-            ID = model.Id;
-            Effort = model.Effort;
-            Name = model.Name;
+        }
+        public ToDoTaskViewModel(ToDoTask model):base(model)
+        {
         }
 
         private int _Effort;
@@ -30,32 +30,29 @@ namespace ProjectsPlanner.ViewModels
             }
         }
 
-        private int _ID;
-        public int ID
+        public override void CreateModel()
         {
-            get => _ID;
-            set
+            Model = new ToDoTask();
+            UpdateViewModel();
+        }
+
+        public override void UpdateViewModel()
+        {
+            base.UpdateViewModel();
+
+            if (Model != null)
             {
-                if (_ID != value)
-                {
-                    _ID = value;
-                    NotifyPropertyChanged();
-                }
+                Effort = Model.Effort;
             }
         }
 
-        private string _Name;
-        public string Name
+        public override void ApplyToModel()
         {
-            get => _Name;
-            set
+            if (Model != null)
             {
-                if (_Name != value)
-                {
-                    _Name = value;
-                    NotifyPropertyChanged();
-                }
+                Model.Effort = Effort;                
             }
+            base.ApplyToModel();
         }
     }
 }

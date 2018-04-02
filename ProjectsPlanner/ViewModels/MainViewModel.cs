@@ -38,8 +38,16 @@ namespace ProjectsPlanner.ViewModels
             get => _SelectedProject;
             set
             {
-                _SelectedProject = value;
-                NotifyPropertyChanged();
+                if (_SelectedProject != value)
+                {
+                    //save previous project
+                    if (value != null)
+                    {
+                        value.ApplyToModel();
+                    }
+                    _SelectedProject = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
     }

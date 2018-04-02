@@ -16,7 +16,7 @@ namespace ProjectsPlanner.BussinessObjects
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=projectplanner.db");
+            optionsBuilder.UseSqlite("Data Source=projectplanner.db");
         }
     }
 }

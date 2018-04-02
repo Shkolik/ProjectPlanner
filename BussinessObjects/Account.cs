@@ -8,5 +8,13 @@ namespace ProjectsPlanner.BussinessObjects
 {
     public class Account : EntityObject
     {
+        protected override void SaveToDb()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                db.Update(this);
+                db.SaveChanges();
+            }
+        }
     }
 }
